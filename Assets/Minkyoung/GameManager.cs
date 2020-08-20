@@ -45,9 +45,16 @@ public class GameManager : MonoBehaviour
             MyCore.Add(MyCores.GetChild(i).GetComponent<ControlCore>());
         }
 
-        for (int i = 0; i < EnemyCores.childCount; i++)
+        for (int i = 1; i < EnemyCores.childCount; i++)
         {
             EnemyCore.Add(EnemyCores.GetChild(i).GetComponent<ControlCore>());
+        }
+
+        for(int i = 0; i<MyCore.Count; i++)
+        {
+            MyCore[i].Temp = EnemyCore[i].Temp = Random.Range(0, 50);
+            MyCore[i].Enemy = false;
+            EnemyCore[i].Enemy = true;
         }
     }
 
