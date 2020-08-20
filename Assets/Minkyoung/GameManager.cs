@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i<MyCore.Count; i++)
         {
+            MyCore[i].number = EnemyCore[i].number = i + 1;
             MyCore[i].Temp = EnemyCore[i].Temp = Random.Range(0, 50);
             MyCore[i].Enemy = false;
             EnemyCore[i].Enemy = true;
