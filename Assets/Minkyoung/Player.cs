@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             attak = true;
+            //어택 상태 끝나고 넣기
             vec_target = transform.position;
         }
 
@@ -39,4 +40,3 @@ public class Player : MonoBehaviour
         }
     }
 }
-
