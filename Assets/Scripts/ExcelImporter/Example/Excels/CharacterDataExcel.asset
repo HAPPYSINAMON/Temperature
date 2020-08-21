@@ -19,15 +19,93 @@ MonoBehaviour:
     mp: 40
     atk: 30
     def: 10
-    intelligence: 1
-    resist_Hot: 1
-    resist_Cold: 1
+    intelligence: 10
+    dex: 5
+    resist_Hot: 0
+    resist_Cold: 0
+    attack_Range: 2
+    attack_Speed: 1
   - id: 2
     name: Rosmarinus
     hp: 100
     mp: 40
     atk: 30
     def: 10
-    intelligence: 1
+    intelligence: 5
+    dex: 5
     resist_Hot: 1
     resist_Cold: 1
+    attack_Range: 3
+    attack_Speed: 1
+  - id: 3
+    name: DrGee
+    hp: 100
+    mp: 40
+    atk: 30
+    def: 10
+    intelligence: 5
+    dex: 5
+    resist_Hot: 1
+    resist_Cold: 1
+    attack_Range: 3
+    attack_Speed: 1
+  - id: 4
+    name: Joro
+    hp: 100
+    mp: 40
+    atk: 30
+    def: 10
+    intelligence: 5
+    dex: 5
+    resist_Hot: 1
+    resist_Cold: 1
+    attack_Range: 3
+    attack_Speed: 1
+  - id: 5
+    name: Tom
+    hp: 100
+    mp: 40
+    atk: 30
+    def: 10
+    intelligence: 5
+    dex: 5
+    resist_Hot: 1
+    resist_Cold: 1
+    attack_Range: 1
+    attack_Speed: 1
+  - id: 6
+    name: Jerry
+    hp: 100
+    mp: 40
+    atk: 30
+    def: 10
+    intelligence: 5
+    dex: 5
+    resist_Hot: 1
+    resist_Cold: 1
+    attack_Range: 1
+    attack_Speed: 1
+  - id: 7
+    name: Youki
+    hp: 100
+    mp: 40
+    atk: 30
+    def: 10
+    intelligence: 5
+    dex: 5
+    resist_Hot: 1
+    resist_Cold: 1
+    attack_Range: 1
+    attack_Speed: 1
+  - id: 8
+    name: Summer
+    hp: 100
+    mp: 40
+    atk: 30
+    def: 10
+    intelligence: 5
+    dex: 5
+    resist_Hot: 1
+    resist_Cold: 1
+    attack_Range: 1
+    attack_Speed: 1

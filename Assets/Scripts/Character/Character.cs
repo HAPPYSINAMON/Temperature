@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : IAttacker, IDefender
+public class Character : IAttacker, IDefender
 {
     public string Name { get; set; }
     public int HP { get; set; }
@@ -22,9 +22,25 @@ public abstract class Character : IAttacker, IDefender
             characterState = CharacterState.DIE;
     }
 
-    public abstract int GetATK();
+    public int GetHP()
+    {
+        return HP;
+    }
 
-    public abstract int GetDef();
+    public void SetHP(int value)
+    {
+        HP += value;
+    }
+
+    public int GetATK()
+    {
+        return Atk;
+    }
+
+    public int GetDef()
+    {
+        return Def;
+    }
 
     public bool IsDie()
     {
