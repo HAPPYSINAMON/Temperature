@@ -170,6 +170,7 @@ MonoBehaviour:
   EnemyCores: {fileID: 1947588059}
   MyCore: []
   EnemyCore: []
+  GMachine: {fileID: 0}
 --- !u!1 &593719663
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,9 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &593719665
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -300,9 +301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &651221910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -435,9 +436,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &843843205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -548,9 +549,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &898313052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -647,9 +648,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &978880701
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -746,9 +747,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &997720710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -831,9 +832,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1179673570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -954,7 +955,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -995,8 +996,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919fdc5b64e14bc4384fba949bf76f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomSize: 5
   target: {fileID: 1919116222}
-  moveSpeed: 6
+  moveSpeed: 10
 --- !u!1 &1326908598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,9 +1030,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1326908600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1141,7 +1143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 1
-  hp: 100
 --- !u!212 &1595650230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1238,9 +1239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1647000398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1337,9 +1338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1826682086
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1628,7 +1629,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
 --- !u!1 &1947588058
 GameObject:
   m_ObjectHideFlags: 0
