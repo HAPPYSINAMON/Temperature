@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CoreGuardMachine : GuardMachine
 {
+    [Header("속도, 반지름")]
+
+    public float speed = 1;
+    public float radius = 1;
+
     public int num = 0;
     public Transform ControlCoreTrans;
 
@@ -13,15 +18,14 @@ public class CoreGuardMachine : GuardMachine
     void Start()
     {
         runningTime = num * 400;
-        if (ControlCoreTrans == null)
-        {
-            ControlCoreTrans = GetComponentInParent<ControlCore>().gameObject.transform;
-        }
     }
 
     // Use this for initialization
     void Update()
     {
+        float closestDistance = Mathf.Infinity;
+        GameObject closestEnemy = null;
+
         runningTime += Time.deltaTime * speed;
         if (!Die)
         {
@@ -29,6 +33,27 @@ public class CoreGuardMachine : GuardMachine
             float y = radius * Mathf.Sin(runningTime) + ControlCoreTrans.position.y;
             newPos = new Vector2(x, y);
             transform.position = newPos;
+        }
+
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, radius_target);
+
+        foreach(Collider2D col in cols)
+        {
+            if(col.GetComponent<PlayerMovement>() != null && col.GetComponent<PlayerMovement>().team != team)
+            {
+                float distance = Vector2.Distance(col.transform.position, transform.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestEnemy = col.gameObject;
+                }
+            }
+        }
+
+        if(closestEnemy != null)
+        {
+            Attak(closestEnemy);
         }
     }
 }

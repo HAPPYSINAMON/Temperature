@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5124716519738189628}
   - component: {fileID: 5124716519738189629}
-  - component: {fileID: 5124716519738189626}
+  - component: {fileID: 6524806342084875973}
   m_Layer: 0
   m_Name: GuardMachine
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5124716519738189626
+--- !u!114 &6524806342084875973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5124716519738189627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e2d79e8d164d6742bf09001b17edc8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ffd00430e31c7c4b8a71673878d4d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
+  Die: 0
   speed: 1
   radius: 1
-  Enemy: 0
   num: 0
   ControlCoreTrans: {fileID: 0}

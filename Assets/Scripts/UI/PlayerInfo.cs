@@ -13,7 +13,6 @@ public class PlayerInfo : MonoBehaviour
     private void Start()
     {
         player = new Character();
-        player.Name = "A";
         player.HP = 100;
         player.MP = 100;
         player.Atk = 10;
@@ -31,8 +30,7 @@ public class PlayerInfo : MonoBehaviour
     void ShowCharacterStat()
     {
 
-        CharacterStatText.text = "이름 : " + player.Name + "\n" +
-                                 "HP : " + player.HP + "\n" +
+        CharacterStatText.text = "HP : " + player.HP + "\n" +
                                  "MP : " + player.MP + "\n" +
                                  "ATK : " + player.Atk + "\n" +
                                  "Def : " + player.Def + "\n" +
