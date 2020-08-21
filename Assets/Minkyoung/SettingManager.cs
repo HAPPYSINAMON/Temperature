@@ -54,10 +54,22 @@ public class SettingManager : MonoBehaviour
         {
             RedCore[i].number = BlueCore[i].number = i + 1;
             RedCore[i].HP = BlueCore[i].HP = hp;
-            RedCore[i].Temp = BlueCore[i].Temp = Random.Range(0, 50);
+            RedCore[i].Temp = Random.Range(0, 50);
+            BlueCore[i].Temp = Random.Range(0, 50);
+            
+            int n = Random.Range(0, 1);
+            if (n == 0)
+            {
+                RedCore[i].tempstate = BlueCore[i].tempstate = TempState.Hot;
+            }
+            else
+            {
+                RedCore[i].tempstate = BlueCore[i].tempstate = TempState.Cold;
+            }
+
             RedCore[i].gameObject.name = BlueCore[i].gameObject.name = "Core" + (i + 1);
-            RedCore[i].Enemy = false;
-            BlueCore[i].Enemy = true;
+            RedCore[i].team= Team.RED;
+            BlueCore[i].team = Team.BLUE;
 
             for (int j = 0; j < RedCore[i].transform.childCount; j++)
             {
