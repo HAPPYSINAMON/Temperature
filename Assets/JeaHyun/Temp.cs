@@ -8,11 +8,11 @@ public class Temp : MonoBehaviour
     public int Temperature;
     public int MINUS_TEMP;
     public int PLUS_TEMP;
-    public float time_Stand = 60f;
     public float time_Temp = 0f;
 
     public const int Temperature_MIN = 0;
     public const int Temperature_MAX = 50;
+    public const float time_Stand = 60f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class Temp : MonoBehaviour
     {
         GameObject[] HOTCORE;
         HOTCORE = GameObject.FindGameObjectsWithTag("HOTCORE");
-
+      
         GameObject[] COLDCORE;
         COLDCORE = GameObject.FindGameObjectsWithTag("COLDCORE");
 
