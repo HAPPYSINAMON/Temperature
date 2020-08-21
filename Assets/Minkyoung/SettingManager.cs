@@ -18,7 +18,9 @@ public class SettingManager : MonoBehaviour
 
     [Header("가드머신")]
     public float radius = 0.5f;
-    public float speed = 1;
+    public float speed = 1.0f;
+    public float distance = 1.0f;
+    public float time = 1.0f;
 
     public static SettingManager Instance
     {

@@ -27,6 +27,8 @@ public class ControlCore : Core
                 guardMachines.Add(transform.GetChild(i).GetComponent<CoreGuardMachine>());
                 transform.GetChild(i).GetComponent<CoreGuardMachine>().radius = SettingManager.Instance.radius;
                 transform.GetChild(i).GetComponent<CoreGuardMachine>().speed = SettingManager.Instance.speed;
+                transform.GetChild(i).GetComponent<CoreGuardMachine>().radius_target = SettingManager.Instance.distance;
+                transform.GetChild(i).GetComponent<CoreGuardMachine>().time = SettingManager.Instance.time;
                 transform.GetChild(i).GetComponent<CoreGuardMachine>().num = i;
                 transform.GetChild(i).GetComponent<CoreGuardMachine>().ControlCoreTrans = transform;
                 transform.GetChild(i).GetComponent<CoreGuardMachine>().transform.localScale = new Vector2(1/transform.localScale.x, 1 / transform.localScale.y);

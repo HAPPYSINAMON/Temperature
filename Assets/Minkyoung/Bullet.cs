@@ -6,15 +6,19 @@ public class Bullet : MonoBehaviour
 {
     public int Damage = 1;
     public float Duration = 0.5f;
-
-    public void Init(GuardMachine owner)
+    public float speed = 15f;
+    public GameObject target;
+    
+    void Update()
     {
-        transform.position = owner.transform.position;
-        gameObject.SetActive(true);
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
     }
 
-    Vector3 Linear(float t, Vector3 b, Vector3 c, float d)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        return c * t / d + b;
+        if(col.collider.gameObject == target)
+        {
+            Destroy(gameObject);
+        }
     }
 }

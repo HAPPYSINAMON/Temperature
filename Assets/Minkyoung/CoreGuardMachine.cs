@@ -26,6 +26,7 @@ public class CoreGuardMachine : GuardMachine
         float closestDistance = Mathf.Infinity;
         GameObject closestEnemy = null;
 
+        time += Time.deltaTime;
         runningTime += Time.deltaTime * speed;
         if (!Die)
         {
