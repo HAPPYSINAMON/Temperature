@@ -9,7 +9,7 @@ public class GuardMachine : MonoBehaviour, IDefender, IAttacker
     [SerializeField] [Range(0f, 10f)] public float speed = 1;
     [SerializeField] [Range(0f, 10f)] public float radius = 1;
 
-    public bool Enemy = false;
+    public Team team { get; set; }
     public bool Die = false;
 
     public int HP { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }

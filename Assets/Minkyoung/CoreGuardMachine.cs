@@ -17,7 +17,6 @@ public class CoreGuardMachine : GuardMachine
         {
             ControlCoreTrans = GetComponentInParent<ControlCore>().gameObject.transform;
         }
-        Enemy = ControlCoreTrans.GetComponent<Core>().Enemy;
     }
 
     // Use this for initialization
