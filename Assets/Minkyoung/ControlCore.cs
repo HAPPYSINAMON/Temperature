@@ -23,14 +23,8 @@ public class ControlCore : Core
         }
     }
 
-    void Start()
+    public void ChangeTemp()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
