@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5.0f;
     public bool attak = false;
     Vector2 vec_target;
-    
+
     // Start is called before the first frame update
     void Start()
     {

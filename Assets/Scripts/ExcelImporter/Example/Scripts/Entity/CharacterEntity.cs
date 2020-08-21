@@ -13,6 +13,10 @@ public class CharacterEntity
 	public int atk;
 	public int def;
 	public int intelligence;
+	public int dex;
 	public int resist_Hot;
 	public int resist_Cold;
+	public int attack_Range;
+	public int attack_Speed;
+
 }
