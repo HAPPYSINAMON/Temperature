@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
-    Player player;
-    Player testPlayer;
+    Character player;
+    Character testPlayer;
 
     [SerializeField] Text CharacterStatText;
 
     private void Start()
     {
-        player = new Player();
+        player = new Character();
         player.Name = "A";
         player.HP = 100;
         player.MP = 100;

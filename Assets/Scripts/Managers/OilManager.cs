@@ -4,20 +4,42 @@ using UnityEngine;
 
 public class OilManager : MonoBehaviour
 {
+    public static OilManager Instance;
+    Coroutine oilCoroutine;
+
     int currentOil;
 
-    public void OnGameStarted()
+    private void Start()
     {
-        StartCoroutine(AddOilPerSecond());
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public IEnumerator AddOilPerSecond()
+
+    /// <summary>
+    /// 게임 시작시 실행
+    /// </summary>
+    public void OnGameStarted()
+    {
+        oilCoroutine = StartCoroutine(AddOilPerSecond());
+    }
+
+    /// <summary>
+    /// 초 당 오일 증가
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator AddOilPerSecond()
     {
         while(true)
         {
-            currentOil += 3;
-            Debug.Log(currentOil);
             yield return new WaitForSeconds(1f);
+            currentOil += 3;
         }
     }
 
