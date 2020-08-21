@@ -5,8 +5,11 @@ using UnityEngine;
 public class ControlCore : Core
 {
     public int number = 0;
-    public int Temp;
+
+    public int Temp { set; get; }
     public List<CoreGuardMachine> guardMachines = new List<CoreGuardMachine>();
+
+    public TempState tempstate { set; get; }
 
     private void Awake()
     {
@@ -19,14 +22,9 @@ public class ControlCore : Core
             transform.GetChild(i).gameObject.name = "GuardMachine" + (i + 1);
         }
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeTemp()
     {
-        
+
     }
 }

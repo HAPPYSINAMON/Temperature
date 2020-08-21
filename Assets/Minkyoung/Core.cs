@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Core : MonoBehaviour, IDefender
 {
-    public bool Enemy = false;
-
+    public Team team { get; set; }
     public int HP { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public CharacterState characterState { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
