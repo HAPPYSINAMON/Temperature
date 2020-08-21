@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public List<ControlCore> MyCore = new List<ControlCore> ();
     public List<ControlCore> EnemyCore = new List<ControlCore>();
 
+    public GameObject GMachine;
+
     public static GameManager Instance
     {
         get
