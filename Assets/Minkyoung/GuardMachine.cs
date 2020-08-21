@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuardMachine : MonoBehaviour
 {
-    public int HP = 200;
+    public int HP = 20;
     public float radius_target = 1f;
     public Team team;
     public bool Die = false;
