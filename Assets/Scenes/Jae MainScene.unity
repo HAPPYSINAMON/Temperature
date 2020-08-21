@@ -166,11 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd0d022c7f730e4fb565d33c60bc60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyCores: {fileID: 816782188}
-  EnemyCores: {fileID: 1947588059}
-  MyCore: []
-  EnemyCore: []
-  GMachine: {fileID: 0}
 --- !u!1 &593719663
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,9 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &593719665
 SpriteRenderer:
@@ -300,9 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &651221910
 SpriteRenderer:
@@ -435,9 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &843843205
 SpriteRenderer:
@@ -548,9 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &898313052
 SpriteRenderer:
@@ -647,9 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &978880701
 SpriteRenderer:
@@ -746,9 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &997720710
 SpriteRenderer:
@@ -831,9 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &1179673570
 SpriteRenderer:
@@ -1029,9 +1010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &1326908600
 SpriteRenderer:
@@ -1142,7 +1121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da15125a52d7add46b58d9a1bb0b6689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 1
 --- !u!212 &1595650230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1238,9 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &1647000398
 SpriteRenderer:
@@ -1337,9 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389318cd2702fc42aa4f33cb3221184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
   number: 0
-  Temp: 0
   guardMachines: []
 --- !u!212 &1826682086
 SpriteRenderer:
@@ -1628,7 +1602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da15125a52d7add46b58d9a1bb0b6689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: 0
 --- !u!1 &1947588058
 GameObject:
   m_ObjectHideFlags: 0
