@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 0.5f;
     public bool attak = false;
+    public Team team = Team.BLUE;
     Vector2 vec_target;
 
     // Start is called before the first frame update
