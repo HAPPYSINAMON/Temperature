@@ -10,31 +10,29 @@ public class TempManager : MonoBehaviour
     TimeManager timeManager;
     OilManager oilManager;
 
-    private void Awake()
-    {
-        timeManager = gameObject.AddComponent<TimeManager>();
-        oilManager = gameObject.AddComponent<OilManager>();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        timeManager.StartGame();
-    }
+        timeManager = gameObject.AddComponent<TimeManager>();
+        oilManager = gameObject.AddComponent<OilManager>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        BindEvents();
+
+        timeManager.StartGame();
     }
 
     void BindEvents()
     {
-        timeManager.GameStarted += oilManager.OnGameStarted;
+        timeManager.OnGameStarted += oilManager.OnGameStarted;
     }
 
     void UnBindEvents()
     {
-        timeManager.GameStarted -= oilManager.OnGameStarted;
+        timeManager.OnGameStarted -= oilManager.OnGameStarted;
+    }
+
+    private void OnDestroy()
+    {
+        UnBindEvents();
     }
 }

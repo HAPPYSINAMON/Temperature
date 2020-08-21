@@ -170,6 +170,7 @@ MonoBehaviour:
   EnemyCores: {fileID: 1947588059}
   MyCore: []
   EnemyCore: []
+  GMachine: {fileID: 0}
 --- !u!1 &593719663
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,9 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &593719665
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -300,9 +301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &651221910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -435,9 +436,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &843843205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -548,9 +549,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &898313052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -647,9 +648,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &978880701
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -746,9 +747,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &997720710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -831,9 +832,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1179673570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -910,6 +911,7 @@ GameObject:
   - component: {fileID: 1237098940}
   - component: {fileID: 1237098939}
   - component: {fileID: 1237098938}
+  - component: {fileID: 1237098941}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -953,7 +955,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -982,6 +984,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237098941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237098937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919fdc5b64e14bc4384fba949bf76f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSize: 5
+  target: {fileID: 1919116222}
+  moveSpeed: 10
 --- !u!1 &1326908598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,9 +1030,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1326908600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1126,7 +1143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 1
-  hp: 100
 --- !u!212 &1595650230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1223,9 +1239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1647000398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1322,9 +1338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
   number: 0
   Temp: 0
+  guardMachines: []
 --- !u!212 &1826682086
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1431,7 +1447,6 @@ GameObject:
   - component: {fileID: 1919116224}
   - component: {fileID: 1919116223}
   - component: {fileID: 1919116225}
-  - component: {fileID: 1919116226}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1498,7 +1513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919116222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.71, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1518,18 +1533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   attak: 0
---- !u!114 &1919116226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919116222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 919fdc5b64e14bc4384fba949bf76f24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1929562537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1629,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: 0
-  hp: 100
 --- !u!1 &1947588058
 GameObject:
   m_ObjectHideFlags: 0

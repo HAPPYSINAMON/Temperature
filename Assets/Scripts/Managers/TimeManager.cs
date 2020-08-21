@@ -7,13 +7,18 @@ public class TimeManager : MonoBehaviour
 {
     bool isGameStarted = false;
 
-    public Action GameStarted;
+    public Action OnGameStarted;
 
     /// <summary>
     /// 게임 시작 시 작동
     /// </summary>
     public void StartGame()
     {
+        if (isGameStarted)
+            return;
+
         isGameStarted = true;
+
+        OnGameStarted?.Invoke();
     }
 }
