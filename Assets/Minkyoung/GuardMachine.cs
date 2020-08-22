@@ -2,36 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardMachine : MonoBehaviour, IDefender, IAttacker
+public class GuardMachine : MonoBehaviour
 {
-    [Header("속도, 반지름")]
-
-    [SerializeField] [Range(0f, 10f)] public float speed = 1;
-    [SerializeField] [Range(0f, 10f)] public float radius = 1;
-
-    public Team team { get; set; }
+    public int HP = 20;
+    public float radius_target = 1f;
+    public Team team;
     public bool Die = false;
+    public GameObject bullet;
+    public float time = 0.0f;
+    public float Settime = 1.5f;
 
-    public int MaxHP { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public CharacterState characterState { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
-    public void DamageProcess(int damage)
+    public void Heal(int hp)
     {
-        throw new System.NotImplementedException();
+        if (HP < 200)
+        {
+            HP += hp;
+        }
     }
 
-    public int GetATK()
+    public void Hit(int hp)
     {
-        throw new System.NotImplementedException();
+        if(HP > 0)
+        {
+            HP -= hp;
+        }
+        else
+        {
+            Die = true;
+        }
     }
 
-    public int GetDef()
+    public void Rebrith()
     {
-        throw new System.NotImplementedException();
+        Die = false;
+        HP = 200;
     }
 
-    public bool IsDie()
+    public void Attak(GameObject target)
     {
-        throw new System.NotImplementedException();
+        if (time >= Settime)
+        {
+            time = 0;
+            bullet.GetComponent<Bullet>().target = target;
+            Instantiate(bullet, transform.position, transform.rotation);
+        }
     }
 }
