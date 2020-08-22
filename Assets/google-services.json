@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "21158553730",
+    "firebase_url": "https://temperature-3bda1.firebaseio.com",
+    "project_id": "temperature-3bda1",
+    "storage_bucket": "temperature-3bda1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21158553730:android:6b3a96ccba359fcd07ac9b",
+        "android_client_info": {
+          "package_name": "com.Heaven.Temperature2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21158553730-kl5qpllsgp99nb77u72kr6d8qb3s59hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzhbEw8KXQxleuwgqB2jLVgV7pkLDuWIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21158553730-kl5qpllsgp99nb77u72kr6d8qb3s59hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
