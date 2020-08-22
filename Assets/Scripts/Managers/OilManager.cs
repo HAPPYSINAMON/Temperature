@@ -7,7 +7,7 @@ public class OilManager : MonoBehaviour
     public static OilManager Instance;
     Coroutine oilCoroutine;
 
-    int currentOil;
+    int currentOil = 0;
 
     private void Start()
     {

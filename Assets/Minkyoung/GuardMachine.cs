@@ -12,7 +12,7 @@ public class GuardMachine : MonoBehaviour, IDefender, IAttacker
     public Team team { get; set; }
     public bool Die = false;
 
-    public int HP { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public int MaxHP { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public CharacterState characterState { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public void DamageProcess(int damage)

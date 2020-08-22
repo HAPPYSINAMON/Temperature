@@ -53,7 +53,7 @@ public class SettingManager : MonoBehaviour
         for (int i = 0; i < RedCore.Count; i++)
         {
             RedCore[i].number = BlueCore[i].number = i + 1;
-            RedCore[i].HP = BlueCore[i].HP = hp;
+            RedCore[i].MaxHP = BlueCore[i].MaxHP = hp;
             RedCore[i].Temp = Random.Range(0, 50);
             BlueCore[i].Temp = Random.Range(0, 50);
             

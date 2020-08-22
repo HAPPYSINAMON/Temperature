@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+  <row>
+    <id>1</id>
+    <name>resist_Hot_Upgrade</name>
+    <price>300</price>
+    <pricePow>2</pricePow>
+    <upgradeAmount>10</upgradeAmount>
+  </row>
+  <row>
+    <id>2</id>
+    <name>resist_Cold_Upgrade</name>
+    <price>300</price>
+    <pricePow>2</pricePow>
+    <upgradeAmount>10</upgradeAmount>
+  </row>
+  <row>
+    <id>3</id>
+    <name>def_Upgrade</name>
+    <price>300</price>
+    <pricePow>2</pricePow>
+    <upgradeAmount>10</upgradeAmount>
+  </row>
+  <row>
+    <id>4</id>
+    <name>atk_Upgrade</name>
+    <price>300</price>
+    <pricePow>2</pricePow>
+    <upgradeAmount>10</upgradeAmount>
+  </row>
+  <row>
+    <id>5</id>
+    <name>portableGuardMachine</name>
+    <price>800</price>
+    <pricePow>1</pricePow>
+    <upgradeAmount>0</upgradeAmount>
+  </row>
+  <row>
+    <id>6</id>
+    <name>RepairTool</name>
+    <price>100</price>
+    <pricePow>1</pricePow>
+    <upgradeAmount>0</upgradeAmount>
+  </row>
+</rows>

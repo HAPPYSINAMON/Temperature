@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IDefender
 {
     int GetDef();
-    int HP { get; set; }
+    int MaxHP { get; set; }
     CharacterState characterState { get; set; }
     bool IsDie();
     void DamageProcess(int damage);
