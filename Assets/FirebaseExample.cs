@@ -6,6 +6,7 @@ using Firebase.Database;
 using System;
 using Firebase;
 using Firebase.Unity.Editor;
+using UnityEngine.UIElements;
 
 public class FirebaseExample : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class FirebaseExample : MonoBehaviour
     public string test_key;
     [TextArea(3, 10)]
     public string test_json;
+
+    int index = 0;
 
     private void Awake()
     {
@@ -30,12 +33,28 @@ public class FirebaseExample : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TestPush()
     {
-        reference.Child(test_key).Push().SetRawJsonValueAsync(test_json);
+        //reference.Child(test_key).Push().SetRawJsonValueAsync(test_json);
+
+        // 방에 참가하면 ChildAdded 콜백 걸어두세여
+        //reference.ChildAdded += OnCommandRecieved;
+        //reference.Push().SetValueAsync(new Dictionary<string, object>()
+        //{
+        //    { "command", "join" },
+        //    { "name", "이름" },
+        //    {  "command","command_0" },
+        //    {  "position", "{\"x\",10 },  {\"y\",10 }" },
+        //});
+
+        cdata cd = new cdata(test_key, new Position());
+
+        string json = JsonUtility.ToJson(cd);
+        reference.Child("test").SetRawJsonValueAsync(json);
+        //index++;
     }
 
     public void JoinRoom()
@@ -45,7 +64,9 @@ public class FirebaseExample : MonoBehaviour
         reference.Push().SetValueAsync(new Dictionary<string, object>()
         {
             { "command", "join" },
-            { "name", "이름" }
+            { "name", "이름" },
+            {  "command","command_0" },
+            {  "position", "{\"x\",10 },  {\"y\",10 }" },
         });
     }
 
@@ -78,18 +99,21 @@ public class FirebaseExample : MonoBehaviour
         reference.Push().SetRawJsonValueAsync(json);
     }
 }
-public class User
+
+public class cdata
 {
-    public string username;
-    public string email;
 
-    public User()
+    public string time;
+
+    public Position value;
+
+    public cdata(string time, Position value)
     {
+
+        this.time = time;
+
+        this.value = value;
+
     }
 
-    public User(string username, string email)
-    {
-        this.username = username;
-        this.email = email;
-    }
 }
