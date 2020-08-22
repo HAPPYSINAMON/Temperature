@@ -6,9 +6,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
@@ -38,7 +40,7 @@ public class StartButton : MonoBehaviour
     public RectTransform veiwport;
     public RectTransform content;
 
-    FirebaseUser currentUser;
+    public FirebaseUser currentUser;
     User user;
     private string room_key;
     public string currentRoomName;
@@ -48,6 +50,8 @@ public class StartButton : MonoBehaviour
     public Text id;
     public Text name;
     public Text room;
+
+    private FirebaseApp firebaseApp;
 
     public string UserId
     {
@@ -69,11 +73,21 @@ public class StartButton : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+#if UNITY_EDITOR
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://temperature-3bda1.firebaseio.com/");
-        reference = FirebaseDatabase.DefaultInstance.RootReference;
+#endif
+        var options = new AppOptions() {
+            ProjectId = "temperature-3bda1",
+            DatabaseUrl = new Uri("https://temperature-3bda1.firebaseio.com"),
+            ApiKey = "AIzaSyCzhbEw8KXQxleuwgqB2jLVgV7pkLDuWIw",
+            AppId = "1:21158553730:android:143e5e6ffd54c40707ac9b",
+            MessageSenderId = "21158553730",
+            StorageBucket = "temperature-3bda1.appspot.com"
+        };
+        firebaseApp = FirebaseApp.Create(options, "com.Heaven.Temperature2");
 
-        RoomUI.SetActive(false);
-        GameStartUI.SetActive(true);
+        reference = FirebaseDatabase.GetInstance(firebaseApp).RootReference;
+        auth = FirebaseAuth.GetAuth(firebaseApp);
     }
 
     private void Start()
@@ -132,15 +146,22 @@ public class StartButton : MonoBehaviour
             Destroy(content.GetChild(i).gameObject);
         }
         var roomList = await GetRoomList();
+        //var roomInfo = reference.Child("Room");
+
         foreach (var pair in roomList)
         {
             // DB 키
             Debug.Log(pair.Key);
             // 방 이름
             Debug.Log(pair.Value);
+            //var sn = await roomInfo.Child(pair.Value).GetValueAsync();
+            //Debug.Log(sn.ChildrenCount);
+
+            int count = await GetUsersAsync(pair.Key);
             var index = Instantiate(RoomListbutton, new Vector3(0, 0, 0), Quaternion.identity);
+
             index.transform.parent = content.gameObject.transform;
-            index.GetComponentInChildren<Text>().text = pair.Value;
+            index.GetComponentInChildren<Text>().text = pair.Value + "("+count+"/6)";
             index.GetComponent<Button>().onClick.AddListener(()=>{ EnterRoom(pair.Key); });
         }
         content.sizeDelta = new Vector2(veiwport.sizeDelta.x, RoomListbutton.GetComponent<RectTransform>().sizeDelta.y * roomList.Count);
@@ -173,6 +194,29 @@ public class StartButton : MonoBehaviour
         return (snapshot.Value as Dictionary<string, object>).ToDictionary(pair => pair.Key, pair => (pair.Value as Dictionary<string ,object>)["roomname"] as string);
     }
 
+    public async void GetUserList(string d)
+    {
+        Debug.Log("유저 리스트");
+        int count = 0;
+        var room_ref = reference.Child("Room").Child(d);
+        await room_ref.RunTransaction(mu =>
+        {
+            var roomInfo = mu.Value as Dictionary<string, object>;
+            var users = roomInfo["users"] as Dictionary<string, object>;
+            foreach (var pair in users)
+            {
+                var oo = users[pair.Key] as Dictionary<string, object>;
+                var ii = oo["user"] as Dictionary<string, object>;
+                Debug.Log(oo["team"]);
+                Debug.LogError(oo["user"]);
+                Debug.Log(ii["username"]);
+            }
+            //var userInfo = users["user"] as Dictionary<string, string>;
+
+            return TransactionResult.Success(mu);
+        });
+    }
+
     public async void MakeRoom(string room_name)
     {
         var room_ref = reference.Child("Room").Push();
@@ -197,13 +241,38 @@ public class StartButton : MonoBehaviour
         this.CurrentParticipants = (e.Snapshot.Child("users").Value as Dictionary<string, object>).ToDictionary(pair => pair.Key, pair => ParticipantInfo.FromDictionary(pair.Value as Dictionary<string, object>));
         OnRoomInfoChanged?.Invoke();
     }
+    public async Task<int> GetUsersAsync(string key)
+    {
+        int count = 0;
+        var room_ref = reference.Child("Room").Child(key);
+        await room_ref.RunTransaction(mu =>
+        {
+            var roomInfo = mu.Value as Dictionary<string, object>;
+            var users = roomInfo["users"] as Dictionary<string, object>;
+
+            count = users.Count;
+
+            return TransactionResult.Success(mu);
+        });
+        return count;
+    }
 
     public async void EnterRoom(string key)
     {
         var message = await JoinRoom(key);
+        GetUserList(key);
         if (message.Equals("성공"))
         {
+            SceneManager.LoadScene(1);
+        }
+    }
 
+    public async void OutRoom()
+    {
+        var message = await ExitRoom();
+        if (message.Equals("성공"))
+        {
+            SceneManager.LoadScene(0);
         }
     }
     public async Task<string> JoinRoom(string room_key)
@@ -218,6 +287,12 @@ public class StartButton : MonoBehaviour
             bool is_master = true;
             if(participants.Count > 0)
             {
+                if(participants.ContainsKey(UserId))
+                {
+                    message = "이미 참여한 방입니다";
+                    Debug.Log(string.Format("이미 참여한 방\nroom_key : {0}", room_key));
+                    return TransactionResult.Abort();
+                }
                 foreach (var pair in participants)
                 {
                     if (!(pair.Value is Dictionary<string, object>))
@@ -283,7 +358,6 @@ public class StartButton : MonoBehaviour
         return message;
     }
 
-    [Obsolete]
     public async void DestroyRoom()
     {
         await reference.Child("Room").Child(room_key).RunTransaction(mutableData =>
@@ -320,6 +394,11 @@ public class StartButton : MonoBehaviour
                         var next_master_info = participants[next_master] as Dictionary<string, object>;
                         next_master_info["is_master"] = true;
                     }
+                    else
+                    {
+                        //나 혼자일떈
+
+                    }
                 }
             }
             else
@@ -345,7 +424,7 @@ public class StartButton : MonoBehaviour
     public void OnClickMakeRoomBtn()
     {
         MakeRoom(room.text);
-        ReadRoomList();
+        SceneManager.LoadScene(1);
     }
 
     public void OnClickQuitBtn()
@@ -355,7 +434,6 @@ public class StartButton : MonoBehaviour
 
     public async void OnClickStartBtn()
     {
-        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         if (id.text != "" && name.text!="")
         {
             Action<bool> action = code =>

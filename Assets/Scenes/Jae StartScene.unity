@@ -508,9 +508,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1939318290}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: OnClickMakeRoomBtn
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1427,6 +1427,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197605684}
   m_CullTransparentMesh: 0
+--- !u!1 &1259504023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1259504025}
+  - component: {fileID: 1259504024}
+  m_Layer: 0
+  m_Name: Setting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1259504024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259504023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4edb285bbdd6f45a50448f6d19e457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomUI: {fileID: 578477369}
+  GameStartUI: {fileID: 1748653631}
+  veiwport: {fileID: 1439963441}
+  content: {fileID: 1386888024}
+  name: {fileID: 234158804}
+  email: {fileID: 604196121}
+  room: {fileID: 1584168463}
+  startButton: {fileID: 1361456661}
+  makeButton: {fileID: 308205221}
+--- !u!4 &1259504025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259504023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313174628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,9 +1723,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1939318290}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: OnClickStartBtn
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
