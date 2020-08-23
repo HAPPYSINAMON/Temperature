@@ -19,9 +19,9 @@ public class RoomData : MonoBehaviour
 
     public void UpdateInfo()
     {
-        roomDataTxt.text = string.Format("{0} [{1}/{2}]"
+        roomDataTxt.text = string.Format("{0}  [{1}/{2}]"
                                           , roomName
-                                          , playerCount.ToString("00")
+                                          , playerCount.ToString("0")
                                           , MaxPlayer);
     }
 }

@@ -98,7 +98,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Connect To Master");
+        Debug.Log("Joined Room");
         PhotonNetwork.IsMessageQueueRunning = false;
         SceneManager.LoadScene(1);
     }

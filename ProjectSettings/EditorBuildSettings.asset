@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Jae StartScene.unity
     guid: 8420607685f12f740b0222305ed5b854
   - enabled: 1
+    path: Assets/Scenes/RoomScene.unity
+    guid: 60cad21952cb3054f89b207ddd86165b
+  - enabled: 1
     path: Assets/Scenes/Jae Character.unity
     guid: e55b33ca1dd48cf49b0cad0c0bcf1805
   - enabled: 1
