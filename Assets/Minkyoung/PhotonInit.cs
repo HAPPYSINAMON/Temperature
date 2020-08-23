@@ -70,7 +70,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
 
     private void ChangePanel(ActivePanel panel)
     {
-        foreach(GameObject _panel in panels)
+        foreach (GameObject _panel in panels)
         {
             Debug.Log(panel);
             _panel.SetActive(false);
@@ -105,11 +105,11 @@ public class PhotonInit : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("ROOM"))
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ROOM"))
         {
             Destroy(obj);
         }
-        foreach(RoomInfo roomInfo in roomList)
+        foreach (RoomInfo roomInfo in roomList)
         {
             GameObject _room = Instantiate(room);
             _room.transform.parent = gridTr.transform;
