@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Jae Character.unity
     guid: e55b33ca1dd48cf49b0cad0c0bcf1805
   - enabled: 1
-    path: Assets/Scenes/Jae MainScene.unity
+    path: Assets/Scenes/CharacterAnim.unity
     guid: a95011251dca7cb479c7e36062623d46
   m_configObjects: {}
