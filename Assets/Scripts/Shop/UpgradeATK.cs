@@ -73,6 +73,6 @@ public class UpgradeATK : UpgradeParams
         text.text = "이름 : " + Name + "\n" +
             "레벨 : " + level + "\n" +
             "가격 : " + Price + "\n" +
-            "더위저항 : " + UpgradeAmount + "\n";
+            "공격력강화 : +" + UpgradeAmount + "\n";
     }
 }

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public Team team = Team.BLUE;
     public CharacterState state;
 
-    string _Name;
-    public string Name;
+    string Name { get; set; }
 
     int _maxHP = 500;
     public int MaxHP { get { return _maxHP; } set { _maxHP = value; } }
-    public int _currentHP = 50;
+    public int _currentHP = 500;
     public int CurrentHP
     {
         get
@@ -74,20 +72,6 @@ public class Character : MonoBehaviour
             _Def = value;
         }
     }
-    int _Intelligence = 10;
-    public int Intelligence
-    {
-        get
-        {
-            if (_Intelligence < 10)
-                _Intelligence = 10;
-            return _Intelligence;
-        }
-        set
-        {
-            _Intelligence = value;
-        }
-    }
 
     int _Dex = 10;
     public int Dex
@@ -103,34 +87,6 @@ public class Character : MonoBehaviour
             _Dex = value;
         }
     }
-    int _ResistHot = 0;
-    public int Resist_Hot
-    {
-        get
-        {
-            if (_ResistHot < 0)
-                _ResistHot = 0;
-            return _ResistHot;
-        }
-        set
-        {
-            _ResistHot = value;
-        }
-    }
-    int _ResistCold = 0;
-    public int Resist_Cold
-    {
-        get
-        {
-            if (_ResistCold < 0)
-                _ResistCold = 0;
-            return _ResistCold;
-        }
-        set
-        {
-            _ResistCold = value;
-        }
-            }
 
     public static Character player;
 
@@ -140,6 +96,16 @@ public class Character : MonoBehaviour
             player = this;
 
         state = CharacterState.IDLE;
+    }
+
+    IEnumerator AutoHeal()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(2f);
+            _currentHP += 1;
+            _currentMP += 1;
+        }
     }
 
     public void DamageProcess(int damage)
@@ -190,16 +156,6 @@ public class Character : MonoBehaviour
     public void SetDef(int value)
     {
         _Def += value;
-    }
-
-    public void SetResistHot(int value)
-    {
-        Resist_Hot += value;
-    }
-
-    public void SetResistCold(int value)
-    {
-        _ResistCold += value;
     }
 
     void IsDead()

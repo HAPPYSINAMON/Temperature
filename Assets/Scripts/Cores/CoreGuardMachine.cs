@@ -37,19 +37,19 @@ public class CoreGuardMachine : GuardMachine
 
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, radius_target);
 
-        foreach(Collider2D col in cols)
-        {
-            if(col.GetComponent<Character>() != null && col.GetComponent<Character>().team != team)
-            {
-                float distance = Vector2.Distance(col.transform.position, transform.position);
+        //foreach(Collider2D col in cols)
+        //{
+        //    if(col.GetComponent<Character>() != null && col.GetComponent<Character>().team != team)
+        //    {
+        //        float distance = Vector2.Distance(col.transform.position, transform.position);
 
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                    closestEnemy = col.gameObject;
-                }
-            }
-        }
+        //        if (distance < closestDistance)
+        //        {
+        //            closestDistance = distance;
+        //            closestEnemy = col.gameObject;
+        //        }
+        //    }
+        //}
 
         if(closestEnemy != null)
         {
