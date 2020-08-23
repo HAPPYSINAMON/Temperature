@@ -7,7 +7,7 @@ public class CameraPlayer : MonoBehaviour
     float zoomSize = 5f;
 
     public GameObject target; // 카메라가 따라갈 대상
-    float moveSpeed = 10f; // 카메라 속도
+    float moveSpeed = 8f; // 카메라 속도
     private Vector3 targetPosition; // 대상의 현재 위치
 
     void Update()

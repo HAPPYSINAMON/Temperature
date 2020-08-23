@@ -5,9 +5,7 @@ using System;
 
 public class CharacterBullet : RecycleObject
 {
-    float speed = 5f;
-    public Team team;
-
+    float speed = 20f;
     int _ATK = 10;
 
     public int ATK
@@ -64,58 +62,10 @@ public class CharacterBullet : RecycleObject
         if (Destroyed != null)
             Destroyed(this);
 
-        if (collision.gameObject.name == "Shop")
-            return;
-        else if (collision.gameObject.GetComponent<Character>() == null && collision.gameObject.GetComponent<GuardMachine>() == null)
-            return;
-        else if (collision.gameObject.GetComponent<Character>() != null && collision.gameObject.GetComponent<Character>().team != team)
+        if (collision.gameObject.GetComponent<Character>() != null)
         {
             Debug.Log("캐릭터 어택!");
             collision.gameObject.GetComponent<Character>().DamageProcess(ATK);
-        }
-        else if (collision.gameObject.GetComponent<GuardMachine>() != null && collision.gameObject.GetComponent<GuardMachine>().team != team)
-        {
-            Debug.Log("머신 어택!");
-            collision.gameObject.GetComponent<GuardMachine>().DamageProcess(ATK);
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        isActivated = false;
-
-        if (Destroyed != null)
-            Destroyed(this);
-
-        if (collision.gameObject.name == "Shop")
-            return;
-        else if (collision.gameObject.GetComponent<Character>().team != team)
-        {
-            Debug.Log("어택!");
-            collision.gameObject.GetComponent<Character>().DamageProcess(ATK);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        isActivated = false;
-
-        if (Destroyed != null)
-            Destroyed(this);
-
-        if (collision.gameObject.name == "Shop")
-            return;
-        else if (collision.gameObject.GetComponent<Character>() == null && collision.gameObject.GetComponent<GuardMachine>() == null)
-            return;
-        else if (collision.gameObject.GetComponent<Character>() != null && collision.gameObject.GetComponent<Character>().team != team)
-        {
-            Debug.Log("캐릭터 어택!");
-            collision.gameObject.GetComponent<Character>().DamageProcess(ATK);
-        }
-        else if (collision.gameObject.GetComponent<GuardMachine>() != null && collision.gameObject.GetComponent<GuardMachine>().team != team)
-        {
-            Debug.Log("머신 어택!");
-            collision.gameObject.GetComponent<GuardMachine>().DamageProcess(ATK);
         }
     }
 

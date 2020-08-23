@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4994255018763896001}
   - component: {fileID: 4994255018763896000}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Sprited
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2585656333057741551}
   - component: {fileID: 305808884}
   - component: {fileID: 675799960}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4994255019918778730}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePositionMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4994255020507720034}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

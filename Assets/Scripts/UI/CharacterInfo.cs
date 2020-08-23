@@ -9,38 +9,33 @@ public class CharacterInfo : MonoBehaviour
     [SerializeField] GameObject infoPanel;
     [SerializeField] Text CharacterStatText;
 
+    int hp;
+    int mp;
+    int atk;
+    int def;
+
     private void Start()
     {
-        StartCoroutine(ShowCharacterInfo());
         infoPanel.SetActive(false);
-
-        if (player == null)
-            player = GameObject.Find("Player").GetComponent<Character>();
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
             infoPanel.SetActive(false);
+
+        hp = player.CurrentHP;
+        mp = player.CurrentMP;
+        atk = player.Atk;
+        def = player.Def;
+
+        CharacterStatText.text = "HP : " + hp + "\n" +
+                         "MP : " + mp + "\n" +
+                         "ATK : " + atk + "\n" +
+                         "Def : " + def + "\n";
     }
 
-    IEnumerator ShowCharacterInfo()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(0.5f);
-
-            CharacterStatText.text = "HP : " + player.CurrentHP + "\n" +
-                     "MP : " + player.CurrentMP + "\n" +
-                     "ATK : " + player.Atk + "\n" +
-                     "Def : " + player.Def + "\n" +
-                     "Intelligence : " + player.Intelligence + "\n" +
-                     "ResistHot : " + player.Resist_Hot + "\n" +
-                     "ResistColde : " + player.Resist_Cold + "\n";
-        }
-    }
-
-    public void ShowInfo()
+    public void Show()
     {
         infoPanel.SetActive(true);
     }

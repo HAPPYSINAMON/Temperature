@@ -72,6 +72,6 @@ public class UpgradeDef : UpgradeParams
         text.text = "이름 : " + Name + "\n" +
             "레벨 : " + level + "\n" +
             "가격 : " + Price + "\n" +
-            "더위저항 : " + UpgradeAmount + "\n";
+            "방어력 강화 : +" + UpgradeAmount + "\n";
     }
 }

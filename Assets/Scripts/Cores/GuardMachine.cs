@@ -89,7 +89,6 @@ public class GuardMachine : MonoBehaviour
             //Instantiate(bulletPrefab, transform.position, transform.rotation);
             CharacterBullet bullet = bulletFactory.Get() as CharacterBullet;
             bullet.target = target;
-            bullet.team = team;
             bullet.SetATK(ATK);
             bullet.Activate(transform.position, target.transform.position);
             bullet.Destroyed += OnBulletDestroyed;

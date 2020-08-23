@@ -13,11 +13,14 @@ public class HealthUI : MonoBehaviour
     {
         StartCoroutine(Show());
 
-        if (player == null)
-            player = GameObject.Find("Player").GetComponent<Character>();
+        hpSlider.maxValue = player.MaxHP;
+        hpSlider.value = player.CurrentHP;
 
-        hpSlider.value = 1f * player.CurrentHP / player.MaxHP;
-        mpSlider.value = 1f * player.CurrentMP / player.MaxMP;
+        mpSlider.maxValue = player.MaxMP;
+        mpSlider.value = player.CurrentMP;
+
+        Debug.Log(player.CurrentHP);
+        Debug.Log(player.CurrentMP);
     }
 
     IEnumerator Show()
@@ -26,11 +29,8 @@ public class HealthUI : MonoBehaviour
         {
             yield return new WaitForSeconds(0.3f);
 
-            if (player == null)
-                yield return new WaitForSeconds(0.3f);
-
-            hpSlider.value = 1f * player.CurrentHP / player.MaxHP;
-            mpSlider.value = 1f * player.CurrentMP / player.MaxMP;
+            hpSlider.value = player.CurrentHP;
+            mpSlider.value = player.CurrentMP;
         }
     }
 }

@@ -32,8 +32,8 @@ public class HeroEinstein : Character
 
     public void SKill_1()
     {
-        getValue = 50;
-        needValue = 80;
+        getValue = 20;
+        needValue = 10;
 
         if (player.GetMP() < needValue)
             return;
@@ -44,8 +44,8 @@ public class HeroEinstein : Character
 
     public void Skill_2()
     {
-        getValue = 50;
-        needValue = 80;
+        getValue = 10;
+        needValue = 20;
 
         if (player.GetHP() < needValue)
             return;

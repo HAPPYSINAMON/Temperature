@@ -58,7 +58,6 @@ public class BulletLauncher : MonoBehaviour
             return;
 
         CharacterBullet bullet = bulletFactory.Get() as CharacterBullet;
-        bullet.team = player.team;
         bullet.SetATK(player.Atk);
         bullet.Activate(firePosition.position, position);
         bullet.Destroyed += OnBulletDestroyed;
