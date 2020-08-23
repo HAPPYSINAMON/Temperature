@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BulletLauncher : MonoBehaviour
+public class BulletLauncher : MonoBehaviourPunCallbacks
 {
     [SerializeField] CharacterBullet bulletPrefab;
     [SerializeField] Transform firePosition;
@@ -17,6 +18,8 @@ public class BulletLauncher : MonoBehaviour
     Rigidbody2D theRB;
 
     float moveSpeed;
+
+    private PhotonView pv;
 
     private void Awake()
     {
@@ -34,10 +37,20 @@ public class BulletLauncher : MonoBehaviour
 
         bulletFactory = new Factory(bulletPrefab);
         targetPos = transform.position;
+
+        if (pv.IsMine)
+        {
+            Camera.main.GetComponent<CameraPlayer>().target = this.gameObject;
+        }
     }
 
     private void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         if (shopWindow.activeSelf == true)
             return;
 
